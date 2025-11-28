@@ -1,3 +1,4 @@
+# Code review marker
 """
 Сервис управления рисками для безопасного трейдинга на фьючерсах
 Включает: stop loss, take profit, position sizing, leverage control, correlation limits
