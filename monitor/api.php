@@ -1,4 +1,5 @@
 <?php
+// Code review: Backend API for monitoring
 /**
  * API для получения данных мониторинга
  */
