@@ -1,4 +1,5 @@
 <?php
+// Code review marker
 require_once 'config.php';
 ?>
 <!DOCTYPE html>
