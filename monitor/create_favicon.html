@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script>
+// Создаем favicon через canvas
+const canvas = document.createElement('canvas');
+canvas.width = 32;
+canvas.height = 32;
+const ctx = canvas.getContext('2d');
+
+// Градиентный фон
+const gradient = ctx.createLinearGradient(0, 0, 32, 32);
+gradient.addColorStop(0, '#667eea');
+gradient.addColorStop(1, '#764ba2');
+ctx.fillStyle = gradient;
+ctx.fillRect(0, 0, 32, 32);
+
+// Рисуем график (линия вверх)
+ctx.strokeStyle = 'white';
+ctx.lineWidth = 2;
+ctx.beginPath();
+ctx.moveTo(4, 28);
+ctx.lineTo(8, 24);
+ctx.lineTo(12, 20);
+ctx.lineTo(16, 16);
+ctx.lineTo(20, 12);
+ctx.lineTo(24, 8);
+ctx.lineTo(28, 4);
+ctx.stroke();
+
+// Конвертируем в data URL и скачиваем
+const link = document.createElement('a');
+link.download = 'favicon.ico';
+link.href = canvas.toDataURL('image/png');
+link.click();
+</script>
+</head>
+<body>Creating favicon...</body>
+</html>

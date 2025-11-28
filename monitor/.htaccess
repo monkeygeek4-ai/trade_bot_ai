@@ -1,0 +1,46 @@
+# Настройки для папки monitor
+Options +FollowSymLinks -Indexes
+
+# Разрешить доступ ко всем файлам
+<IfModule mod_authz_core.c>
+    # Apache 2.4+
+    Require all granted
+</IfModule>
+
+<IfModule !mod_authz_core.c>
+    # Apache 2.2
+    Order allow,deny
+    Allow from all
+</IfModule>
+
+# Разрешить выполнение PHP
+<FilesMatch "\.php$">
+    <IfModule mod_authz_core.c>
+        Require all granted
+    </IfModule>
+    <IfModule !mod_authz_core.c>
+        Order allow,deny
+        Allow from all
+    </IfModule>
+</FilesMatch>
+
+# Разрешить доступ к статическим файлам
+<FilesMatch "\.(css|js|png|jpg|jpeg|gif|ico|svg)$">
+    <IfModule mod_authz_core.c>
+        Require all granted
+    </IfModule>
+    <IfModule !mod_authz_core.c>
+        Order allow,deny
+        Allow from all
+    </IfModule>
+</FilesMatch>
+
+# Кэширование статических файлов
+<IfModule mod_expires.c>
+    ExpiresActive On
+    ExpiresByType text/css "access plus 1 month"
+    ExpiresByType application/javascript "access plus 1 month"
+</IfModule>
+
+# UTF-8 кодировка
+AddDefaultCharset UTF-8
